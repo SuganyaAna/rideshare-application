@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Rideshare App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Office Rideshare</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#book-ride">Book a Ride</a></li>
+                <li><a href="#my-rides">My Rides</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#sos">Emergency SOS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <h2>Welcome to Office Rideshare</h2>
+            <p>Your convenient ride solution for getting to and from work.</p>
+        </section>
+
+        <!-- Book a Ride Section -->
+        <section id="book-ride">
+            <h2>Book a Ride</h2>
+            <form id="ride-form">
+                <label for="pickup-location">Pickup Location:</label>
+                <input type="text" id="pickup-location" name="pickup-location" required>
+
+                <label for="dropoff-location">Dropoff Location:</label>
+                <input type="text" id="dropoff-location" name="dropoff-location" required>
+
+                <label for="pickup-time">Pickup Time:</label>
+                <input type="datetime-local" id="pickup-time" name="pickup-time" required>
+
+                <button type="submit">Book Ride</button>
+            </form>
+        </section>
+
+        <!-- My Rides Section -->
+        <section id="my-rides">
+            <h2>My Rides</h2>
+            <ul id="ride-list">
+                <!-- Ride history items will be dynamically generated here -->
+            </ul>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile">
+            <h2>Profile</h2>
+            <form id="profile-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe" readonly>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="johndoe@example.com" readonly>
+
+                <button type="button" onclick="editProfile()">Edit Profile</button>
+            </form>
+        </section>
+
+        <!-- Emergency SOS Section -->
+        <section id="sos">
+            <h2>Emergency SOS</h2>
+            <p>If you're in an emergency, press the button below to alert local authorities.</p>
+            <button id="sos-button" onclick="sendSOS()">Emergency SOS</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Office Rideshare. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
