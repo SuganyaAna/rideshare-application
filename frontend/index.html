@@ -1,90 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Office Rideshare App</title>
+    <title>Office Commute App</title>
     <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
 </head>
-
 <body>
-    <!-- Header -->
     <header>
-        <h1>Office Rideshare</h1>
+        <h1>Book your Ride</h1>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#book-ride">Book a Ride</a></li>
-                <li><a href="#my-rides">My Rides</a></li>
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#sos">Emergency SOS</a></li>
+                <li><a href="index.html">Home</a></li>
+              
             </ul>
         </nav>
     </header>
-
-    <!-- Main Content -->
+    
     <main>
-        <!-- Home Section -->
-        <section id="home">
-            <h2>Welcome to Office Rideshare</h2>
-            <p>Your convenient ride solution for getting to and from work.</p>
-        </section>
-
-        <!-- Book a Ride Section -->
         <section id="book-ride">
             <h2>Book a Ride</h2>
-            <form id="ride-form">
-                <label for="pickup-location">Pickup Location:</label>
-                <input type="text" id="pickup-location" name="pickup-location" required>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="ridetype">Ride Type</label>
+                    <select id="ridetype" name="ridetype" required>
+                        <option value="" hidden disabled selected>Select Ride Type</option>
+                        <option value="Pickup">Pickup</option>
+                        <option value="Drop">Drop</option>
+                       
+                    </select>
+                </div>
+                
+                 
+                
+                <div class="form-group">
+                    <label id="timeLabel" for="timeinput">Ride Time</label>
+                    <input type="datetime-local" id="timeinput" name="timeinput" required>
+                </div>
 
-                <label for="dropoff-location">Dropoff Location:</label>
-                <input type="text" id="dropoff-location" name="dropoff-location" required>
-
-                <label for="pickup-time">Pickup Time:</label>
-                <input type="datetime-local" id="pickup-time" name="pickup-time" required>
-
-                <button type="submit">Book Ride</button>
+                <button id="bookridebtn" type="button">Book Ride</button>
             </form>
+            <button id="sosBtn" type="button">Emergency SOS</button>
         </section>
 
-        <!-- My Rides Section -->
-        <section id="my-rides">
-            <h2>My Rides</h2>
-            <ul id="ride-list">
-                <!-- Ride history items will be dynamically generated here -->
-            </ul>
-        </section>
+       
 
-        <!-- Profile Section -->
-        <section id="profile">
+        <hr style="margin: 0;">
+        <!-- <section id="profile">
             <h2>Profile</h2>
-            <form id="profile-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="John Doe" readonly>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" value="johndoe@example.com" readonly>
-
-                <button type="button" onclick="editProfile()">Edit Profile</button>
-            </form>
-        </section>
-
-        <!-- Emergency SOS Section -->
-        <section id="sos">
-            <h2>Emergency SOS</h2>
-            <p>If you're in an emergency, press the button below to alert local authorities.</p>
-            <button id="sos-button" onclick="sendSOS()">Emergency SOS</button>
-        </section>
+            <p><strong>Name:</strong> <span id="name">sk</span> </p>
+            <p><strong>Employee ID:</strong><span id="employeeId">12345</span></p>
+            <p><strong>Contact Number:</strong><span id="ContactNumber">876543890</span></p>
+            <p><strong>Address:</strong><span id="Address">Rajiv gandhi salai,Chennai</span></p>
+        </section> -->
+        <section>     <div class="calendar">
+            <div class="header">
+                <button id="prevMonth">&lt;</button>
+                <div id="monthYear"></div>
+                <button id="nextMonth">&gt;</button>
+            </div>
+            <div class="days">
+                <div class="day">Sun</div>
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thu</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+            </div>
+            <div id="dates" class="dates"></div>
+        </div>
+    </section>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Office Rideshare. All rights reserved.</p>
+        <p>&copy; 2024 Office CommuteApp</p>
     </footer>
-
-    <!-- Scripts -->
     <script src="script.js"></script>
+    <script src="calender.js"></script>
 </body>
-
 </html>
