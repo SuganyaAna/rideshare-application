@@ -17,7 +17,7 @@ session_start();
         <h1>Book your Ride</h1>
         <nav>
             <ul>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="" id="profileNav">Profile</a></li>
                 <li><a href="logout.php">Log Out</a></li>
 
