@@ -63,6 +63,7 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 select {
     width: 100%;
     padding: 10px;
@@ -87,14 +88,31 @@ button {
     cursor: pointer;
 }
 
+#profile {
+    position: fixed;
+    display: none;
+    right: 100px;
+    border-radius: 10px;
+    padding: 100px 70px;
+    opacity: 0.95;
+    background-color: #fff;
+    border: 1px solid #333;
+    box-shadow: #333;
+}
+#profile::after{
+    opacity: 1;
+}
+
 button:hover {
     background-color: #0056b3;
 }
-#sosBtn{
+
+#sosBtn {
     background-color: red;
     margin-top: 56px;
 
 }
+
 #rideList {
     list-style: none;
     padding: 0;
@@ -173,6 +191,7 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 350px;
+    margin-top: 80px;
 }
 
 .header {
@@ -197,12 +216,14 @@ footer {
     background-color: #777;
 }
 
-.days, .dates {
+.days,
+.dates {
     display: flex;
     flex-wrap: wrap;
 }
 
-.day, .date {
+.day,
+.date {
     width: calc(100% / 7);
     text-align: center;
     padding: 10px 0;
@@ -228,7 +249,47 @@ footer {
     color: #fff;
 }
 
+.date.pickup {
+    background-color: #0848a8;
+    color: #fff;
+}
+
+.date.drop {
+    background-color: #9e1675;
+    color: #fff;
+}
+
 .date.selected {
     background-color: #007bff;
     color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
 }

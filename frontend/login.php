@@ -1,60 +1,49 @@
 <?php
-// Start the session
-include_once $_SERVER['DOCUMENT_ROOT'].'\frontend\database.class.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/frontend/user.class.php';
 
 session_start();
- $conn=database::getconnection();
-// Check if the login form is submitted
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get the employee ID and password from the form
     $employee_id = $_POST['employeeId'];
     $password = $_POST['password'];
-   
 
-    // Prepare and bind the SQL statement to prevent SQL injection
-    $stmt = $conn->prepare("SELECT * FROM employeedetails WHERE EmployeeID = ?");
-    $stmt->bind_param("s", $employee_id);
+    // Fetch user details
+    $result = Operations::getData('employeedetails', $employee_id);
 
-    // Execute the query
-    $stmt->execute();
+    if (!empty($result) && $result[0]['Password'] == $password) {
+        $_SESSION['logged_in'] = true;
 
-    // Get the result of the query
-    $result = $stmt->get_result();
+        // Fetch bookings
+        $bookings = Operations::getData('rides', $employee_id);
 
-    // Check if a user with the given employee ID exists
-    if ($result->num_rows > 0) {
-        // Fetch the user data
-        $user = $result->fetch_assoc();
-
-        // Verify the password
-        if ($user["Password"]==$password) {
-            // Password is correct, start a session and store user info
-            $_SESSION['employee_id'] = $user['employee_id'];
-            $_SESSION['logged_in'] = true;
-
-            // Redirect to the dashboard or any other protected page
-            header("Location: index.html");
-            exit();
-        } else {
-            // Password is incorrect
-            $error = "Invalid Employee ID or Password.";
-          
+        $rideTypes = [];
+        $dateTimes = [];
+        $_SESSION['Bookings']=$bookings;
+        while ($booking) {
+            $rideTypes[] = $booking['RideType'];
+            $dateTimes[] = $booking['Schedule'];
         }
+
+        $_SESSION['RideType'] = $rideTypes;
+        $_SESSION['DateTime'] = $dateTimes;
+
+        // Store user information in session
+        foreach ($result[0] as $key => $value) {
+            $_SESSION[$key] = $value;
+        }
+
+        header('Location: index.php');
+        exit();
     } else {
-        // No user found with the given employee ID
         $error = "Invalid Employee ID or Password.";
     }
-if (isset($error)): ?>
+
+    if (isset($error)) { ?>
         <script>
             window.alert("<?php echo addslashes($error); ?>");
-            window.location.href='login.html'
+            window.location.href = 'login.html';
         </script>
-    <?php
-    endif; 
-    
-    // Close the statement and connection
-    $stmt->close();
+<?php
+    }
 }
-
-$conn->close();
 ?>

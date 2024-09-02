@@ -10,6 +10,7 @@ class database{
 
         if(database::$getdatabase==NULL){
 
+            
             $server='localhost';
             $username="suganya";
             $userpass="Sonuabi@06";
