@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/frontend/user.class.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/user.class.php';
 $ops=new Operations();
 $result=$ops->getTable('rides');
 // print_r($result)

@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/frontend/database.class.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/database.class.php';
 
 class Operations
 {

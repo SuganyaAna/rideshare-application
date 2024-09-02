@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/frontend/user.class.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/user.class.php';
 
 session_start();
 

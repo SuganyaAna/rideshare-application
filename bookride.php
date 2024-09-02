@@ -1,7 +1,7 @@
 <?php
 
 // Include the necessary class for database operations
-include_once $_SERVER['DOCUMENT_ROOT'] . '/frontend/user.class.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/user.class.php';
 
 // Start the session to access session variables
 session_start();
